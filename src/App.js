@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { auth } from "./firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 
 import "./App.css";
-import { logout, login } from "./features/userSlice";
+import { logout, login, selectUser } from "./features/userSlice";
 
 function App() {
-  const user = null;
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
